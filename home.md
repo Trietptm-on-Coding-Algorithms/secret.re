@@ -1,4 +1,4 @@
-<!-- TITLE: Home -->
-<!-- SUBTITLE: A quick summary of Home -->
+<!-- TITLE: secRet -->
+<!-- SUBTITLE: ![Secret Logo Preview](/uploads/secret-logo-preview.png "Secret Logo Preview") -->
 
 # Header
