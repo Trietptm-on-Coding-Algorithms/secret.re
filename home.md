@@ -1,4 +1,4 @@
-<img src="/uploads/secret-logo-preview.png" alt="Wiki.js" title="Logo" class="pagelogo" style="height:75px">
+<img src="/uploads/secret-logo-preview.png" alt="Wiki.js" title="Logo" class="pagelogo" style="height:50px">
 <!-- TITLE: secRet -->
 <!-- SUBTITLE: Reverse Engineering community -->
 
