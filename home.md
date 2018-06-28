@@ -1,3 +1,3 @@
 <!-- TITLE: secRet -->
-<!-- SUBTITLE: -->
+<!-- SUBTITLE: Reverse Engineering community -->
 # Who we are
