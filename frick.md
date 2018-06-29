@@ -27,26 +27,25 @@ More or less a great attempt to make reverse engineering fun++ && pain_in_the_as
 |  run        |  c,cont,continue,go,next,start  |  continue the execution of the process to the next target offset                                                         |
 |  session    |  s,ss                           |                                                                                                                          |
 |  set        |                                 |                                                                                                                          |
-​
----
-# add sub commands
+
+## add sub commands
 |  command  |   short    |                                       info                                        |
 |-----------|------------|-----------------------------------------------------------------------------------|
 |  dtinit   |  dti,init  |  mark this target as dt_init function. on android we leak the base before dlopen  |
 |  pointer  |  p,ptr     |  add a virtual address in arg0 with optional name in other args                   |
-​
-# find sub commands
+
+## find sub commands
 |  command  |   short    |                                info                                 |
 |-----------|------------|---------------------------------------------------------------------|
 |  export   |  e,ex,exp  |  find export name arg0 in target module or in optional module arg1  |
-​
-# info sub commands
+
+## info sub commands
 |  command  |        short         |                         info                         |
 |-----------|----------------------|------------------------------------------------------|
 |  modules  |  m,md,mo,mod,module  |  list all modules or single module in optional arg0  |
 |  ranges   |  r,range,rg          |  list all ranges or single range in optional arg0    |
-​
-# memory sub commands
+
+## memory sub commands
 |  command  |      short      |                                     info                                     |
 |-----------|-----------------|------------------------------------------------------------------------------|
 |  alloc    |  a,al           |  allocate arg0 size in the heap and return the pointer                       |
@@ -54,9 +53,8 @@ More or less a great attempt to make reverse engineering fun++ && pain_in_the_as
 |  protect  |  p,pr,pro,prot  |  protect address in arg0 for the len arg1 and the prot format in arg2 (rwx)  |
 |  read     |  r,rd           |  read bytes from address in arg0 for len in arg1                             |
 |  write    |  w,wr           |  write into address arg0 the bytes in args... (de ad be ef)                  |
-​
----
-# memory read sub commands
+
+## memory read sub commands
 |    command    |            short             |                                          info                                          |
 |---------------|------------------------------|----------------------------------------------------------------------------------------|
 |  ansistring   |  ans,ansi,ansistr            |  read ansi string from address in arg0 and optional len in arg1                        |
@@ -72,25 +70,24 @@ More or less a great attempt to make reverse engineering fun++ && pain_in_the_as
 |  ushort       |  us                          |  read an unsigned short from address in arg0 with optional endianness in arg1 (le/be)  |
 |  utf16string  |  u16s,utf16,utf16s,utf16str  |  read utf16 string from address in arg0 and optional len in arg1                       |
 |  utf8string   |  u8s,utf8,utf8s,utf8str      |  read utf8 string from address in arg0 and optional len in arg1                        |
-​
-# registers sub commands
+
+## registers sub commands
 |  command  |  short  |                  info                   |
 |-----------|---------|-----------------------------------------|
 |  write    |  w,wr   |  write in register arg0 the value arg1  |
-​
-# session sub commands
+
+## session sub commands
 |  command  |  short  |                                           info                                           |
 |-----------|---------|------------------------------------------------------------------------------------------|
 |  load     |  l,ld   |  load session from previously saved information                                          |
 |  save     |  s,sv   |  saves current target offsets, package and module to be immediatly executed with 'load'  |
-​
-# set sub commands
+
+## set sub commands
 |  command   |  short  |           info            |
 |------------|---------|---------------------------|
 |  capstone  |  cs     |  capstone configurations  |
-​
----
-# set capstone sub commands
+
+## set capstone sub commands
 |  command  |   short    |              info               |
 |-----------|------------|---------------------------------|
 |  arch     |  a,ar      |  set the capstone arch in arg0  |
