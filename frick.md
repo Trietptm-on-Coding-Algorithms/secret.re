@@ -101,4 +101,3 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 # Step by Step
 ## Get familiar
 
-<a href="/frick/commands">Commands list</a> - <a href="/frick/commands">Commands list</a>
