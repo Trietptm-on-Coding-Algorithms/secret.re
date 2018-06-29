@@ -98,5 +98,7 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 |  arch     |  a,ar      |  set the capstone arch in arg0  |
 |  mode     |  m,md,mod  |  set the capstone mode in arg0  |
 
-# Quick links
+# Step by Step
+## Get familiar
+
 <a href="/frick/commands">Commands list</a> - <a href="/frick/commands">Commands list</a>
