@@ -123,10 +123,42 @@ attach com.package libtest.so
 We are now attached to the function (or arbitrary address) and once the program will hit the hook, we will have a context to play with.
 
 ## Context commands
-Once we hit the hook, we can unleash the power of frida and frick to do a lot of different stuffs. 
+Once we hit the hook, we can unleash the power of frida and frick to do a lot of different stuffs. Here some examples:
+
+### Reading registers
+```python
+registers
+-------------------------------------------------------------------------------[ 0xf1e2e695 ]----
+R0  : 0x5a
+R1  : 0xd0db74e8 -> 0x642f0001
+R2  : 0x6e
+R3  : 0xf1e3d16a -> 0x2b720000 -> 0x0
+R4  : 0x5a
+R5  : 0xd0db74e8 -> 0x642f0001
+R6  : 0xd0db74ea -> 0x7665642f -> 0x0
+R7  : 0x1
+R8  : 0xd0db7cd0 -> 0x39333339 -> 0x0
+R9  : 0x0
+R10 : 0xd0db75a0 -> 0x0
+R11 : 0xd0db7678 -> 0x0
+R12 : 0xf1ea3b2c -> 0xf1e2e695 -> 0x1f000f8
+SP  : 0xd0db74e0 -> 0x4
+PC  : 0xf1e3d109 -> 0xebd1051c -> 0x0
+LR  : 0xf1e3d109 -> 0xebd1051c -> 0x0
+```
 
 ### Reading memory
 
-### Writing memory
+```python
+memory read 0xf1e3d109 128
+-------------------------------------------------------------------------------[ 0xf1e3d109 ]----
+F1E3D109: 1C 05 D1 EB F7 88 E9 00  68 04 28 F3 D0 06 E0 28  ........h.(....(
+F1E3D119: B9 14 A1 20 46 EC F7 96  E9 05 46 03 E0 20 46 EB  ....F.....F...F.
+F1E3D129: F7 9E E9 00 25 10 48 1E  99 78 44 00 68 00 68 40  ....%.H..xD.h.h@
+F1E3D139: 1A 02 BF 28 46 1F B0 F0  BD EB F7 FC E8 00 BF 2A  ...(F..........*
+F1E3D149: 63 06 00 C8 76 05 00 EB  8B 05 00 2F 64 65 76 2F  c...v....../dev/
+F1E3D159: 73 6F 63 6B 65 74 2F 64  6E 73 70 72 6F 78 79 64  socket/dnsproxyd
+F1E3D169: 00 00 00 72 2B 00 00 92  62 06 00 B0 B5 84 B0 DF  ...r+...b.......
+F1E3D179: F8 40 C0 DD E9 08 4E FC  44 0B 9D CD E9 00 4E CD  .@....N.D.....N.
+```
 
-### Declaring and use native functions
