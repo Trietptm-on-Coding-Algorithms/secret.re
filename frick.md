@@ -4,7 +4,12 @@
 More or less a great attempt to make reverse engineering fun++ && pain_in_the_ass--
 
 # Description
+Frida makes reverse engineering better. By allowing arbitrary code injection at any time and the abilities to play with pointer and use native functions through js api, frida turns debugging into the next level. Scripting exploit and stuffs to reach challenges will fit any case, however, I decided to code a cli for the following reasons:
 
+* any step forward (aka any new line of code) require package restart (or a static code to reload the script)
+* hooking and tracing a routin which is invoked hundred times is a pain.
+* having colors highlighting pointers/values and structs would turn me to code some static "framework" in any case
+* Whatever is the goal, using the fastest way is always a must. I coded inside everything to go faster (that fit my approach)
 # Commands
 |   command   |              short              |                                                           info                                                           |
 |-------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
