@@ -121,3 +121,12 @@ attach com.package libtest.so
 ```
 
 We are now attached to the function (or arbitrary address) and once the program will hit the hook, we will have a context to play with.
+
+## Context commands
+Once we hit the hook, we can unleash the power of frida and frick to do a lot of different stuffs. 
+
+### Reading memory
+
+### Writing memory
+
+### Declaring and use native functions
