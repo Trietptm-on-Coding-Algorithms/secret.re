@@ -8,5 +8,3 @@ We are a big, yet little, reverse engineering community that's living on <a href
 # Projects
 <a href="/frick">frick</a>
 
-# News
-**wip wip**
