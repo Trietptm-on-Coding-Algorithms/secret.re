@@ -10,6 +10,19 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 * hooking and tracing a routin which is invoked hundred times is a pain.
 * having colors highlighting pointers/values and structs would turn me to code some static "framework" in any case
 * Whatever is the goal, using the fastest way is always a must. I coded inside everything to go faster (that fit my approach)
+
+# Why it pwn asses
+* Android can attach to dt_init, leaking module base from linker before initializations
+* Quick shortcuts for any command
+* Each command result can be stored into a variable, which can be used as args to other commands
+* Declaring and use native functions at runtime
+* Multihexdump, highlighting valid pointers and values with different colors
+* Deep pointer recursion in registers display
+* Destruct command for highlight arrays and unknown structures
+* Can be automated running commands inside callbacks
+* Easily write any data type
+* Shortcuts to access and store values into registers 
+* Can load a saved or manually modified session to be ready asap
 # Commands
 |   command   |              short              |                                                           info                                                           |
 |-------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
