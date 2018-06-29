@@ -4,18 +4,6 @@
 # Description
 More or less a great attempt to make reverse engineering fun++ && pain_in_the_ass--
 
----
-
-
-![Alt text](https://image.ibb.co/j8Wa5J/Schermata_2018_06_19_alle_21_06_41.png "frick") 
-
-![Alt text](https://image.ibb.co/d7v70J/Schermata_2018_06_19_alle_02_39_54.png "frick")
-
-![Alt text](https://image.ibb.co/fjSUvJ/Schermata_2018_06_18_alle_11_15_43.png "frick")
-
-![Alt text](https://image.ibb.co/gObi78/Screenshot_from_2018_06_27_09_51_27.png "frick")
-
-
 ### Features for the eyes
 * interactive commands with shortcuts 
 * nice ui and colors (thanks @hugsy)
