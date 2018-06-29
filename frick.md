@@ -101,3 +101,23 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 # Step by Step
 ## Get familiar
 
+The very first important thing to begin with, is understanding the session file. This file will be created in the frick root and it's basically a list of commands that can be loaded to quickly begin the session.
+
+Assuming we are targetting package **com.package** and the function at offset 0x1000 of the shared library **lib.so**
+
+```python
+python main.py
+-> frick started - GL HF!
+add 0x1000
+-> 0x1000 added to target offsets
+attach com.package lib.so
+-> frida attached
+-> script injected
+-> target arch: arm
+-> pointer size: 4
+-> leaked target base at 0xcb4f1000
+-> attached to 0xcb4f2000
+-> 0xcb4f2000 added to target offsets
+```
+
+We are now attached to the function (or arbitrary address) and once the program will hit the hook, we will have a context to play with.
