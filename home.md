@@ -11,8 +11,8 @@ We are a big, yet little, reverse engineering community that's living on <a href
 
 ---
 
-<img src="https://image.ibb.co/j8Wa5J/Schermata_2018_06_19_alle_21_06_41.png" style="width:50%" />
-<img src="https://image.ibb.co/d7v70J/Schermata_2018_06_19_alle_02_39_54.png" style="width:50%" />
+<img src="https://image.ibb.co/j8Wa5J/Schermata_2018_06_19_alle_21_06_41.png" style="width:50%;margin:4px" />
+<img src="https://image.ibb.co/d7v70J/Schermata_2018_06_19_alle_02_39_54.png" style="width:50%;position:absolute;margin:4px" />
 
 ---
 
