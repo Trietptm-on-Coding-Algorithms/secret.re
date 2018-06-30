@@ -278,7 +278,7 @@ function add fopenptr pointer pointer pointer
 |  destruct   |  des,ds                         |  read at address arg0 for len arg1 and optional depth arg2                                                               |
 |  disasm     |  d,dis                          |  disassemble the given hex payload in arg0 or a pointer in arg0 with len in arg1                                         |
 |  find       |  f,fi                           |  utilities to find stuffs                                                                                                |
-|  function   |  fn,fu,funct                    |  manage functions                                                                                                   |
+|  functions  |  fn,fu,fun,func,funct,function  |  list native functions                                                                                                   |
 |  help       |  h                              |                                                                                                                          |
 |  hexdump    |  hd,hdump                       |  hexdump memory regions pointed by value in args for len in the last arg                                                 |
 |  info       |  i,in                           |  get information about your target                                                                                       |
