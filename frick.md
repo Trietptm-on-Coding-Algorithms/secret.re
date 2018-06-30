@@ -21,6 +21,7 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 * Destruct command for highlight arrays and unknown structures
 * Can be automated running commands inside callbacks
 * Easily write any data type
+* PThreads creation notication
 * Shortcuts to access and store values into registers 
 * Can load a saved or manually modified session to be ready asap
 * Capstone engine integrated
