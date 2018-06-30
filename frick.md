@@ -47,6 +47,14 @@ attach com.package libtest.so
 -> 0xcb4f2000 added to target offsets
 ```
 
+later we can run **session save** command to store our commands to restart the session
+```python
+session save
+-> session saved
+
+session load
+```
+
 We are now attached to the function (or arbitrary address) and once the program will hit the hook, we will have a context to play with.
 
 ## Context commands
@@ -152,6 +160,106 @@ R12 : 0xf1ea3b2c -> 0xf1e2e695 -> 0x1f000f8
 SP  : 0xd0d974e0 -> 0x4
 PC  : 0xf1e3d109 -> 0xebd1051c -> 0x0
 LR  : 0xf1e3d109 -> 0xebd1051c -> 0x0
+```
+
+# Features
+## MultiHexdump
+```python
+hexdump $r1 $r3 128
+D0D974E8: 01 00 2F 64 65 76 2F 73  6F 63 6B 65 74 2F 64 6E  ../dev/socket/dn		F1E3D16A: 00 00 72 2B 00 00 92 62  06 00 B0 B5 84 B0 DF F8  ..r+...b........
+D0D974F8: 73 70 72 6F 78 79 64 00  00 00 00 00 00 00 00 00  sproxyd.........		F1E3D17A: 40 C0 DD E9 08 4E FC 44  0B 9D CD E9 00 4E CD E9  @....N.D.....N..
+D0D97508: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................		F1E3D18A: 02 5C 00 F0 18 F8 04 46  0A 98 00 2C 04 60 08 D1  .\.....F...,.`..
+D0D97518: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................		F1E3D19A: EB F7 42 E9 01 46 08 68  1C 28 02 D1 22 20 08 60  ..B..F.h.(.."..`
+D0D97528: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................		F1E3D1AA: 04 E0 00 20 00 2C 08 BF  4F F0 FF 30 04 B0 B0 BD  .....,..O..0....
+D0D97538: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................		F1E3D1BA: 00 BF E4 CC 05 00 2D E9  F0 4F 93 B0 80 46 70 48  ......-..O...FpH
+D0D97548: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 40  ...............@		F1E3D1CA: 8B 46 9A 46 78 44 17 46  00 68 01 68 6E 48 12 91  .F.FxD.F.h.hnH..
+D0D97558: 99 4F AC A3 E0 75 D9 D0  74 76 D9 D0 58 5E 0B D0  .O...u..tv..X^..		F1E3D1DA: 78 44 EB F7 C6 E8 38 B1  6C 49 79 44 EB F7 6A E9  xD....8.lIyD..j.
+```
+
+## Destruct
+```python
+destruct $r3 32
+0x2b720000
+    0x00000000
+    0x00000000
+    0x00000000
+    0x00000000
+0x00009262
+0x0600b0b5
+0x84b0dff8
+0xe9ddc040
+    0x27006400
+    0x65002700
+    0x20007900
+    0x20130020
+        0x00000000
+        0x00000000
+0x44fc4e08
+    0x00000000
+    0x00000000
+    0x00000000
+    0x00000000
+0xe9cd9d0b
+    0x0ade04f6
+    0xf10e650a
+        0x16323336
+        0x15140601
+    0xe2083c00
+        0xc18822fb
+        0xc19822fb
+    0xe60b2d04
+        0x35051521
+        0xd1011521
+0xe9cd4e00
+    0x29d643af
+        0x00000000
+        0x00000000
+    0x2c0b2fb2
+        0x00000000
+        0x00000000
+    0x2c272926
+        0x00000000
+        0x00000000
+    0x2a842c20
+        0x00000000
+        0x00000000
+```
+
+## Once callbacks
+```python
+once init
+socket = find export socket libc.so
+add ptr socket
+end
+
+add 0x1000
+
+once 0x1000
+i = 0
+$r2 = 0xdeadbeef
+# unpause thread
+run
+end
+
+attach com.supercell.clashofclans libg.so
+```
+
+## Native Functions
+Another kick ass feature is the ability to store and use native functions. In example:
+
+```python
+gettidptr = find exp gettid libc.so
+# int -> return type
+function add gettidptr int
+-> 0xf1e304bd (gettid - libc.so)
+function run gettid
+-> 0x2d87 (11655)
+
+fopenptr = find exp fopen libc.so
+# pointer -> return type
+# pointer pointer -> args
+function add fopenptr pointer pointer pointer
+-> 0xf1e65065 (fopen - libc.so)
 ```
 
 # Commands
