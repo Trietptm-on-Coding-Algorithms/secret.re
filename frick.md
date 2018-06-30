@@ -63,6 +63,7 @@ session save
 -> session saved
 
 session load
+# will add 0x1000 and attach to the same package/module
 ```
 
 We are now attached to the function (or arbitrary address) and once the program will hit the hook, we will have a context to play with.
@@ -105,6 +106,24 @@ F1E3D149: 63 06 00 C8 76 05 00 EB  8B 05 00 2F 64 65 76 2F  c...v....../dev/
 F1E3D159: 73 6F 63 6B 65 74 2F 64  6E 73 70 72 6F 78 79 64  socket/dnsproxyd
 F1E3D169: 00 00 00 72 2B 00 00 92  62 06 00 B0 B5 84 B0 DF  ...r+...b.......
 F1E3D179: F8 40 C0 DD E9 08 4E FC  44 0B 9D CD E9 00 4E CD  .@....N.D.....N.
+```
+
+### Module informations
+
+```python
+info mod linker
+----------------------------------------------------------------------------------------------[ linker ]----
+name: linker
+base: 0xf41f6000
+size: 0x8d000 (577536)
+path: /system/bin/linker
+
+info mod libc.so
+---------------------------------------------------------------------------------------------[ libc.so ]----
+name: libc.so
+base: 0xf1e13000
+size: 0x93000 (602112)
+path: /system/lib/libc.so
 ```
 
 ## Shortcuts and Placeholders
