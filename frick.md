@@ -162,8 +162,8 @@ PC  : 0xf1e3d109 -> 0xebd1051c -> 0x0
 LR  : 0xf1e3d109 -> 0xebd1051c -> 0x0
 ```
 
-# Features
-## MultiHexdump
+# Examples
+## Multi hexdump
 ```python
 hexdump $r1 $r3 128
 D0D974E8: 01 00 2F 64 65 76 2F 73  6F 63 6B 65 74 2F 64 6E  ../dev/socket/dn		F1E3D16A: 00 00 72 2B 00 00 92 62  06 00 B0 B5 84 B0 DF F8  ..r+...b........
