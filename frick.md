@@ -179,7 +179,7 @@ F1E3D179: F8 40 C0 DD E9 08 4E FC  44 0B 9D CD E9 00 4E CD  .@....N.D.....N.
 
 To minimize the effort, all the commands have nested shortcuts. The placeholder **$** can be used to point a register value.
 
-```python
+```
 memory read $pc 32
 -------------------------------------------------------------------------------[ 0xf1e3d109 ]----
 F1E3D109: 1C 05 D1 EB F7 88 E9 00  68 04 28 F3 D0 06 E0 28  ........h.(....(
@@ -195,6 +195,7 @@ m r $pc 32
 F1E3D109: 1C 05 D1 EB F7 88 E9 00  68 04 28 F3 D0 06 E0 28  ........h.(....(
 F1E3D119: B9 14 A1 20 46 EC F7 96  E9 05 46 03 E0 20 46 EB  ....F.....F...F.
 ```
+
 
 ```python
 what = pack /proc/self/maps
