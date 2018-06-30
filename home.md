@@ -7,6 +7,7 @@ We are a big, yet little, reverse engineering community that's living on <a href
 
 # Projects
 ## frick
+---
 
 * <a href="/frick">wiki</a>
 * <a href="https://github.com/igio90/frick">sources</a>
