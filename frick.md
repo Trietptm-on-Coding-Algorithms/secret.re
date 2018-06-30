@@ -25,6 +25,15 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 * Can load a saved or manually modified session to be ready asap
 * Capstone engine integrated
 
+# Install and Run
+```
+git clone https://github.com/iGio90/frick
+cd frick
+python main.py
+```
+
+In the moment im writing this, there is not yet an update system. Use git to keep the project synced with master.
+
 # Step by Step
 ## Get familiar
 
