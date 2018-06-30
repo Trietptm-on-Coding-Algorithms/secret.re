@@ -177,3 +177,57 @@ F1E3D179: F8 40 C0 DD E9 08 4E FC  44 0B 9D CD E9 00 4E CD  .@....N.D.....N.
 
 ## Shortcuts and Placeholders
 
+To minimize the effort, all the commands have nested shortcuts. The placeholder **$** can be used to point a register value.
+
+```python
+memory read $pc 32
+-------------------------------------------------------------------------------[ 0xf1e3d109 ]----
+F1E3D109: 1C 05 D1 EB F7 88 E9 00  68 04 28 F3 D0 06 E0 28  ........h.(....(
+F1E3D119: B9 14 A1 20 46 EC F7 96  E9 05 46 03 E0 20 46 EB  ....F.....F...F.
+mem read $pc 32
+-------------------------------------------------------------------------------[ 0xf1e3d109 ]----
+F1E3D109: 1C 05 D1 EB F7 88 E9 00  68 04 28 F3 D0 06 E0 28  ........h.(....(
+F1E3D119: B9 14 A1 20 46 EC F7 96  E9 05 46 03 E0 20 46 EB  ....F.....F...F.
+m r $pc 32
+-------------------------------------------------------------------------------[ 0xf1e3d109 ]----
+F1E3D109: 1C 05 D1 EB F7 88 E9 00  68 04 28 F3 D0 06 E0 28  ........h.(....(
+F1E3D119: B9 14 A1 20 46 EC F7 96  E9 05 46 03 E0 20 46 EB  ....F.....F...F.
+```
+
+```python
+what = pack /proc/self/maps
+print what
+-> 246318648710016337982643999497875571
+mem write $r11 what
+mem read $r11 32
+-------------------------------------------------------------------------------[ 0xd0d97678 ]----
+D0D97678: 2F 70 72 6F 63 2F 73 65  6C 66 2F 6D 61 70 73 00  /proc/self/maps.
+D0D97688: 00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+```
+
+```python
+myalloc = m alloc 32
+print myalloc
+-> 0xd2a18d40 (3533802816)
+m w myalloc deadbeef
+$r11 = myalloc
+0xd2a18d40 (3533802816)
+regs
+-------------------------------------------------------------------------------[ 0xf1e2e695 ]----
+R0  : 0x5b
+R1  : 0xd0d974e8 -> 0x642f0001
+R2  : 0x6e
+R3  : 0xf1e3d16a -> 0x2b720000 -> 0x0
+R4  : 0x5b
+R5  : 0xd0d974e8 -> 0x642f0001
+R6  : 0xd0d974ea -> 0x7665642f -> 0x0
+R7  : 0x1
+R8  : 0xd0d97cd0 -> 0x39333339 -> 0x0
+R9  : 0x0
+R10 : 0xd0d975a0 -> 0x0
+R11 : 0xd2a18d40 -> 0xefbeadde -> 0xb9b8003b
+R12 : 0xf1ea3b2c -> 0xf1e2e695 -> 0x1f000f8
+SP  : 0xd0d974e0 -> 0x4
+PC  : 0xf1e3d109 -> 0xebd1051c -> 0x0
+LR  : 0xf1e3d109 -> 0xebd1051c -> 0x0
+```
