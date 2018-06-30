@@ -6,5 +6,12 @@
 We are a big, yet little, reverse engineering community that's living on <a href="https://join.slack.com/t/resecret/shared_invite/enQtMzc1NTg4MzE3NjA1LTlkNzYxNTIwYTc2ZTYyOWY1MTQ1NzBiN2ZhYjQwYmY0ZmRhODQ0NDE3NmRmZjFiMmE1MDYwNWJlNDVjZDcwNGE">**Slack**</a>, supporting open source and sharing knowledge, developing stuffs that makes our life ez.
 
 # Projects
-## <a href="/frick">frick</a>
+## frick
+![Alt text](https://image.ibb.co/j8Wa5J/Schermata_2018_06_19_alle_21_06_41.png "frick") 
+
+![Alt text](https://image.ibb.co/d7v70J/Schermata_2018_06_19_alle_02_39_54.png "frick")
+
+---
+
+<a href="/frick">wiki</a>
 
