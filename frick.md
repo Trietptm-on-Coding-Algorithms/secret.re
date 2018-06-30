@@ -1,5 +1,5 @@
 <!-- TITLE: frick -->
-<!-- SUBTITLE: frick is a kick ass frida cli for reverse engineer inspired by the epic GDB init gef by @hugsy, with commands design similar to uDdbg. -->
+<!-- SUBTITLE: frick - aka the first debugger built on top of frida - is a kick ass frida cli for reverse engineer inspired by the epic GDB init gef by @hugsy. -->
 
 More or less a great attempt to make reverse engineering fun++ && pain_in_the_ass--
 
@@ -13,6 +13,7 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 
 # Why it pwn asses
 * Android can attach to dt_init, leaking module base from linker before initializations
+* It's a debugger! All threads and pthreads will sleep until next
 * Quick shortcuts for any command
 * Each command result can be stored into a variable, which can be used as args to other commands
 * Declaring and use native functions at runtime
