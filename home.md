@@ -7,11 +7,11 @@ We are a big, yet little, reverse engineering community that's living on <a href
 
 # Projects
 ## frick
+<a href="/frick">### wiki</a>
+
 ![Alt text](https://image.ibb.co/j8Wa5J/Schermata_2018_06_19_alle_21_06_41.png "frick") 
 
 ![Alt text](https://image.ibb.co/d7v70J/Schermata_2018_06_19_alle_02_39_54.png "frick")
 
 ---
-
-<a href="/frick">wiki</a>
 
