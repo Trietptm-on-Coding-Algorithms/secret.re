@@ -235,7 +235,6 @@ end
 add 0x1000
 
 once 0x1000
-i = 0
 $r2 = 0xdeadbeef
 # unpause thread
 run
@@ -245,8 +244,6 @@ attach com.supercell.clashofclans libg.so
 ```
 
 ## Native Functions
-Another kick ass feature is the ability to store and use native functions. In example:
-
 ```python
 gettidptr = find exp gettid libc.so
 # int -> return type
