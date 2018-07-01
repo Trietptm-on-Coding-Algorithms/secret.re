@@ -26,7 +26,7 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 * Capstone engine integrated
 * Android can attach to dt_init, leaking module base from linker before initializations
 * It's a debugger! All threads and pthreads will sleep until next
-* You can dynamically load blobs into target process using commands inject (syscall 385)
+* You can dynamically load blobs into target process using command inject (syscall 385)
 # Install and Run
 ```
 git clone https://github.com/iGio90/frick
@@ -287,6 +287,17 @@ fopenptr = find exp fopen libc.so
 # pointer pointer -> args
 function add fopenptr pointer pointer pointer
 -> 0xf1e65065 (fopen - libc.so)
+```
+
+## Inject a local blob
+```python
+# assuming libfrick.so is in frick root directory
+inject libfrick.so friiiiiick
+-> memfd:friiiiiick - mapped at 0xcb4e2000
+
+# we can now use other commands to invoke subs in our binary during runtime.
+# i.e find export and function command. 
+# note: memfd: will always be before custom name
 ```
 
 # Commands
