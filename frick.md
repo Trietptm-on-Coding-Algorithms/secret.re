@@ -12,8 +12,6 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 * Whatever is the goal, using the fastest way is always a must. I coded inside everything to go faster (that fit my approach)
 
 # Why it pwn asses
-* Android can attach to dt_init, leaking module base from linker before initializations
-* It's a debugger! All threads and pthreads will sleep until next
 * Quick shortcuts for any command
 * Each command result can be stored into a variable, which can be used as args to other commands
 * Declaring and use native functions at runtime
@@ -26,7 +24,9 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 * Shortcuts to access and store values into registers 
 * Can load a saved or manually modified session to be ready asap
 * Capstone engine integrated
-
+* Android can attach to dt_init, leaking module base from linker before initializations
+* It's a debugger! All threads and pthreads will sleep until next
+* You can dynamically load blobs into target process using commands inject (syscall 385)
 # Install and Run
 ```
 git clone https://github.com/iGio90/frick
@@ -302,6 +302,7 @@ function add fopenptr pointer pointer pointer
 |  help       |  h                              |                                                                                                                          |
 |  hexdump    |  hd,hdump                       |  hexdump memory regions pointed by value in args for len in the last arg                                                 |
 |  info       |  i,in                           |  get information about your target                                                                                       |
+|  inject     |  inj                            |  wrapper of dlopen to inject a binary from a local path in arg0 and custom name in arg1                                  |
 |  memory     |  m,mem                          |  memory operations                                                                                                       |
 |  once       |  o,on                           |  add a callback for ptr target hit in arg0. the keyword 'init' can be used to do stuffs once module base is retrieved.   |
 |  pack       |  pa                             |  pack value in arg0 to return a string usable with memory write                                                          |
