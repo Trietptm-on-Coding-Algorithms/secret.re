@@ -270,7 +270,7 @@ $r2 = 0xdeadbeef
 run
 end
 
-attach com.supercell.clashofclans libg.so
+attach com.package libtest.so
 ```
 
 ## Native Functions
@@ -306,7 +306,7 @@ In the moment i'm writing this ``session save`` doesn't export scripts, so we ca
 ```
 # scripts load can be safely used before/after command attach
 scripts load .scripts/test.js
-attach com.supercell.clashofclans libg.so
+attach com.package libtest.so
 ```
 
 content for ``test.js`` could be something like:
