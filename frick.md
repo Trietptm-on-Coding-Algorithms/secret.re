@@ -300,6 +300,25 @@ inject libfrick.so friiiiiick
 # note: memfd: will always be before custom name
 ```
 
+# Using custom scripts
+Yeah I know. Sometimes we are too sticked to scripting... we need custom logic that fit the case etc etc so we also have a spot to use custom scripts and use the unique api ``cli`` (if needed), to break the process and have cli context
+In the moment i'm writing this ``session save`` doesn't export scripts, so we can just manually put a line in the .session file or load the scripts during runtime. Using session would be like:
+```
+# scripts load can be safely used before/after command attach
+scripts load .scripts/test.js
+attach com.supercell.clashofclans libg.so
+```
+
+content for ``test.js`` could be something like:
+
+```javascript
+var p = Interceptor.attach(Module.findExportByName('libc.so', 'memcpy'), function () {
+    p.detach();
+		// cli api needs this.context object
+    cli(this.context);
+});
+```
+
 # Commands
 |   command   |              short              |                                                           info                                                           |
 |-------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -322,6 +341,7 @@ inject libfrick.so friiiiiick
 |  registers  |  r,reg,regs                     |  interact with registers                                                                                                 |
 |  remove     |  del,delete,rem                 |  remove an offsets from targets list                                                                                     |
 |  run        |  c,cont,continue,go,next,start  |  continue the execution of the process to the next target offset                                                         |
+|  scripts    |  sc,scr,script                  |  manage custom frida scripts                                                                                             |
 |  session    |  s,ss                           |                                                                                                                          |
 |  set        |                                 |                                                                                                                          |
 
@@ -379,6 +399,13 @@ inject libfrick.so friiiiiick
 |  command  |  short  |                  info                   |
 |-----------|---------|-----------------------------------------|
 |  write    |  w,wr   |  write in register arg0 the value arg1  |
+
+## scripts sub commands
+|  command  |  short  |                                      info                                      |
+|-----------|---------|--------------------------------------------------------------------------------|
+|  load     |  l      |  load the frida script with path in arg0                                       |
+|  open     |  o,op   |  create or open a new frida script with name in arg0 and start default editor  |
+|  unload   |  u,ul   |  unload the frida script with path in arg0                                     |
 
 ## session sub commands
 |  command  |  short  |                                           info                                           |
