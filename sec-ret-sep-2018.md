@@ -1,7 +1,7 @@
 <!-- TITLE: secRet (Sep 2018) -->
 
 # About
-The first re-union, meeting and lab of secRet will be held at **FabLab** in **Falconara Marittima (An)**. ** 14/15/16 sept**
+The first re-union, meeting and lab of secRet will be held at **FabLab** in **Falconara Marittima (An)**. **14/15/16 sep**
 We will spend 3 days together, using 18 hours (6 per days) with lot of beer and training reverse engineering mobile apps, malware, binaries.
 I'll personally share all the tricks i've found, how i've developed my debugger while debugging and instrumenting ARM binaries and lot more.
 
