@@ -33,6 +33,8 @@ For what concerne the training/lab as I said, i'll share and explain in details 
 * debug and instrument the native side
 * alter the flow of the program with arbitrary code injection
 * various trick to obtain what we need including: dynamically load blobs, read and access threads information, posix threads and context switch
+* approach targets obfuscated with commercial compilers
+* writing a rootless crack, build the exploit inside the userspace
 * we will eventually explore something i personally never seen once to understand how to approach to something totally new
 
 -> **more details about the complete program (including an afteernon at the beach if the sun will shine over us) will be posted very soon!
