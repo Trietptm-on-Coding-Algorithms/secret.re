@@ -9,7 +9,7 @@ I'll personally share all the tricks i've found, how i've developed my debugger 
 The location which will host our lab sessions is very big however, we want to keep a short number of participants to ensure the right focus and debat opportunity. 
 It will be a traning even for me and for anyone of us since we will may attempt to explore something new, which is also a topic of the training on how to approach something that we don't fuc!@ç£king know.
 
-**8/12** 
+**11/15** 
 
 We can accept more people in case of max number reached. Feel free to contact me through slack (link in homepage) <-- really... im too lazy to do an "an ``<a href="">`` which by the way, I just did.
 
