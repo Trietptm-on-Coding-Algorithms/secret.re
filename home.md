@@ -8,7 +8,6 @@ We are a big, yet little, reverse engineering community that's living on <a href
 # Events
 
 * <a href="/sec-ret-sep-2018">secRet (sep 2018)</a>
-
 ---
 # Projects
 ## frick
@@ -16,7 +15,6 @@ We are a big, yet little, reverse engineering community that's living on <a href
 
 * <a href="/frick">wiki</a>
 * <a href="https://github.com/igio90/frick">sources</a>
-
 ---
 
 <img src="https://image.ibb.co/j8Wa5J/Schermata_2018_06_19_alle_21_06_41.png" style="width:50%;margin:4px" />
