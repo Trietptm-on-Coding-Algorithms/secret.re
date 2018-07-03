@@ -39,3 +39,6 @@ For what concerne the training/lab as I said, i'll share and explain in details 
 
 This is, at first and at most, an occasion for me (for us) to meet people and exchange ideas, eventually build stuffs that we will push to github streight after the event. I'm very happy to share what i know to people that have passion and interest in the matter.
 I won't stop anyone that wish to join, from joining us, however, we are not going to cover the ARM assembly instruction set, and we assume that whoever wish to learn have enough time to build the needed background before the date of the meeting!
+
+# More info
+Due to the probably partecipation of secRet guys from outside Italy, the entire lab could be (at 99%) be in English.
