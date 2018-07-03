@@ -27,4 +27,15 @@ The access is totally free, however we can't actually provide an accomodation fo
 * Frida (you can pre-install it, we will quickly cover frida setup)
 * A comfortable IDE for coding C, Python and JavaScript (I suggest IntelliJ ultimate - there is a free 1 month trial with all the needed plugins)
 # Table of content
-Coming soon
+For what concerne the training/lab as I said, i'll share and explain in details the following topics:
+
+* debug and instrument the java side
+* debug and instrument the native side
+* alter the flow of the program with arbitrary code injection
+* various trick to obtain what we need including: dynamically load blobs, read and access threads information, posix threads and context switch
+* we will eventually explore something i personally never seen once to understand how to approach to something totally new
+
+-> **more details about the complete program (including an afteernon at the beach if the sun will shine over us) will be posted very soon!
+
+This is, at first and at most, an occasion for me (for us) to meet people and exchange ideas, eventually build stuffs that we will push to github streight after the event. I'm very happy to share what i know to people that have passion and interest in the matter.
+I won't stop anyone that wish to join, from joining us, however, we are not going to cover the ARM assembly instruction set, and we assume that whoever wish to learn have enough time to build the needed background before the date of the meeting!
