@@ -312,10 +312,11 @@ attach com.package libtest.so
 content for ``test.js`` could be something like:
 
 ```javascript
-var p = Interceptor.attach(Module.findExportByName('libc.so', 'memcpy'), function () {
+var target_ptr = Module.findExportByName('libc.so', 'memcpy');
+var p = Interceptor.attach(target_ptr, function () {
     p.detach();
-		// cli api needs this.context object
-    cli(this.context);
+		// cli api needs target offset and this.context object
+    cli(target_ptr, this.context);
 });
 ```
 
