@@ -353,7 +353,6 @@ During emulation, an html file is written in ``.emulator`` folder in the root of
 0xcf7e20ce:    STR    r0, [sp, #0x24]
 -> WRITE at 0xc9c7e46c, data size = 4, data value = 0x0
 0xcf7e20d0:    B    #0xcf7e21b8 (0x3bb1b8 - libg.so)
-0xcf7e20d0:    B    #0xcf7e21b8
 
 
 0xcf7e21b8:    LDR    r0, [sp, #0x24]
@@ -368,7 +367,6 @@ During emulation, an html file is written in ``.emulator`` folder in the root of
 0xcf7e21ca:    STRB.W    r1, [sp, #0x5a]
 -> WRITE at 0xc9c7e4a2, data size = 1, data value = 0x1
 0xcf7e21ce:    B    #0xcf7e217a (0x3bb17a - libg.so)
-0xcf7e21ce:    B    #0xcf7e217a
 ```
 
 # Commands
