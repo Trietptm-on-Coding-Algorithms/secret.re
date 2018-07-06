@@ -369,11 +369,11 @@ During emulation, an html file is written in ``.emulator`` folder in the root of
 0xcf7e21ce:    B    #0xcf7e217a (0x3bb17a - libg.so)
 ```
 
-## Custom callbacks
-There will be the case in which there is the needed to add additional code or logic to certain instructions hit. It's possible to add a callback with the command ``emulator callback``
+## Custom implementation
+There will be the case in which there is the needed to add additional code or logic to certain instructions hit. It's possible to add a callback with the command ``emulator implementation``
 
 ```
-emu cb .scripts/emucb.py
+emu impl .scripts/emucb.py
 -> .scripts/emucb.py set as instructions hook callback. make sure on_hook(uc, address, size) is in place.
 ```
 
@@ -381,15 +381,19 @@ the content of emucb.py would be:
 
 ```python
 # uc expose unicorn emulator, which allow total control on emulation as well.
-# on_ready is invoked just before the start of emulation, allowing additional operations
-# on_hook will be invoked at each instruction, right before writing disasm informations to frick html result
 
+# on_ready is invoked just before the start of emulation, allowing additional operations
 def on_ready(uc, base, entry_point, exit_point):
     print(entry_point)
 
 
+# on_hook will be invoked at each instruction, right before writing disasm informations to frick html result
 def on_hook(uc, offset, address, size):
     print(address)
+		
+# will be asked before on_ready and will ensure the regions for those offsets are mapped into unicorn
+def required_offsets():
+    return [0x339e82]
 ```
 
 # Commands
@@ -428,7 +432,7 @@ def on_hook(uc, offset, address, size):
 ## emulator sub commands
 |  command  |  short  |                   info                    |
 |-----------|---------|-------------------------------------------|
-|  callback  |  cb     |  set instructions callback in arg0        |
+|  implementation  |  i,impl  |  set a custom unicorn script in arg0      |
 |  start    |  s      |  start emulation with exit point in arg0  |
 
 ## find sub commands
