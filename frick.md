@@ -388,7 +388,7 @@ def on_ready(uc, entry_point, exit_point):
     print(entry_point)
 
 
-def on_hook(uc, address, size):
+def on_hook(uc, offset, address, size):
     print(address)
 ```
 
