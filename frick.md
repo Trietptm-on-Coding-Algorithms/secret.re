@@ -369,6 +369,22 @@ During emulation, an html file is written in ``.emulator`` folder in the root of
 0xcf7e21ce:    B    #0xcf7e217a (0x3bb17a - libg.so)
 ```
 
+## Custom callbacks
+There will be the case in which there is the needed to add additional code or logic to certain instructions hit. It's possible to add a callback with the command ``emulator callback``
+
+```
+emu cb .scripts/coch.py
+-> .scripts/emucb.py set as instructions hook callback. make sure on_hook(uc, address, size) is in place.
+```
+
+the content of emucb.py would be:
+
+```python
+# uc expose unicorn emulator, which allow total control on emulation as well.
+def on_hook(uc, address, size):
+    print(address)
+```
+
 # Commands
 |   command   |              short              |                                                           info                                                           |
 |-------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -405,6 +421,7 @@ During emulation, an html file is written in ``.emulator`` folder in the root of
 ## emulator sub commands
 |  command  |  short  |                   info                    |
 |-----------|---------|-------------------------------------------|
+|  callback  |  cb     |  set instructions callback in arg0        |
 |  start    |  s      |  start emulation with exit point in arg0  |
 
 ## find sub commands
