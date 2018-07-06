@@ -373,7 +373,7 @@ During emulation, an html file is written in ``.emulator`` folder in the root of
 There will be the case in which there is the needed to add additional code or logic to certain instructions hit. It's possible to add a callback with the command ``emulator callback``
 
 ```
-emu cb .scripts/coch.py
+emu cb .scripts/emucb.py
 -> .scripts/emucb.py set as instructions hook callback. make sure on_hook(uc, address, size) is in place.
 ```
 
