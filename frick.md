@@ -384,7 +384,7 @@ the content of emucb.py would be:
 # on_ready is invoked just before the start of emulation, allowing additional operations
 # on_hook will be invoked at each instruction, right before writing disasm informations to frick html result
 
-def on_ready(uc, entry_point, exit_point):
+def on_ready(uc, base, entry_point, exit_point):
     print(entry_point)
 
 
