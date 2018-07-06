@@ -27,6 +27,7 @@ Frida makes reverse engineering better. By allowing arbitrary code injection at 
 * Android can attach to dt_init, leaking module base from linker before initializations
 * It's a debugger! All threads and pthreads will sleep until next
 * You can dynamically load blobs into target process using command inject (syscall 385)
+* Unicorn emulation with automatic (dynamic) memory mappings from target device
 # Install and Run
 ```
 git clone https://github.com/iGio90/frick
@@ -320,6 +321,56 @@ var p = Interceptor.attach(target_ptr, function () {
 });
 ```
 
+# Emulating
+Once inside a cli context, it's also possible to emulate the cpu through unicorn integration. Simply run command ``emu start exit_point``
+```
+emu start 0xcf9d20cf
+-> starting emulation at 0xcf7e20b9
+192 instructions traced, 84 memory access
+```
+
+During emulation, an html file is written in ``.emulator`` folder in the root of frick, it will be automatically opened at the end of emulation containing something like this (with colors highlight)
+```html
+-> mapping 4096 at 0xcf7e2000
+
+
+0xcf7e20b8:    LDR    r0, [sp, #0x14]
+-> reading to an unmapped memory region at 3385320540
+-> mapping 1032192 at 0xc9b84000
+0xcf7e20b8:    LDR    r0, [sp, #0x14]
+-> READ at 0xc9c7e45c, data size = 4, data value = 0xf4c15fe6
+0xcf7e20ba:    STR.W    sl, [sp, #0xc]
+-> WRITE at 0xc9c7e454, data size = 4, data value = 0x0
+0xcf7e20be:    STR.W    r8, [sp, #8]
+-> WRITE at 0xc9c7e450, data size = 4, data value = 0x20
+0xcf7e20c2:    STR    r0, [sp, #0x30]
+-> WRITE at 0xc9c7e478, data size = 4, data value = 0xe65fc1f4
+0xcf7e20c4:    MOVS    r0, #0
+0xcf7e20c6:    STR.W    sl, [sp, #0x2c]
+-> WRITE at 0xc9c7e474, data size = 4, data value = 0x0
+0xcf7e20ca:    STR.W    r8, [sp, #0x28]
+-> WRITE at 0xc9c7e470, data size = 4, data value = 0x20
+0xcf7e20ce:    STR    r0, [sp, #0x24]
+-> WRITE at 0xc9c7e46c, data size = 4, data value = 0x0
+0xcf7e20d0:    B    #0xcf7e21b8 (0x3bb1b8 - libg.so)
+0xcf7e20d0:    B    #0xcf7e21b8
+
+
+0xcf7e21b8:    LDR    r0, [sp, #0x24]
+-> READ at 0xc9c7e46c, data size = 4, data value = 0x0
+0xcf7e21ba:    MOVS    r1, #0
+0xcf7e21bc:    CMP.W    r0, #0x100
+0xcf7e21c0:    MOV.W    r0, #2
+0xcf7e21c4:    IT    lt
+0xcf7e21c6:    MOVLT    r1, #1
+0xcf7e21c8:    STR    r0, [sp, #0x54]
+-> WRITE at 0xc9c7e49c, data size = 4, data value = 0x2
+0xcf7e21ca:    STRB.W    r1, [sp, #0x5a]
+-> WRITE at 0xc9c7e4a2, data size = 1, data value = 0x1
+0xcf7e21ce:    B    #0xcf7e217a (0x3bb17a - libg.so)
+0xcf7e21ce:    B    #0xcf7e217a
+```
+
 # Commands
 |   command   |              short              |                                                           info                                                           |
 |-------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -328,6 +379,7 @@ var p = Interceptor.attach(target_ptr, function () {
 |  backtrace  |  bt                             |                                                                                                                          |
 |  destruct   |  des,ds                         |  read at address arg0 for len arg1 and optional depth arg2                                                               |
 |  disasm     |  d,dis                          |  disassemble the given hex payload in arg0 or a pointer in arg0 with len in arg1                                         |
+|  emulator   |  e,emu                          |  unicorn emulator                                                                                                        |
 |  find       |  f,fi                           |  utilities to find stuffs                                                                                                |
 |  functions  |  fn,fu,fun,func,funct,function  |  list native functions                                                                                                   |
 |  help       |  h                              |                                                                                                                          |
@@ -351,6 +403,11 @@ var p = Interceptor.attach(target_ptr, function () {
 |-----------|------------|-----------------------------------------------------------------------------------|
 |  dtinit   |  dti,init  |  mark this target as dt_init function. on android we leak the base before dlopen  |
 |  pointer  |  p,ptr     |  add a virtual address in arg0 with optional name in other args                   |
+
+## emulator sub commands
+|  command  |  short  |                   info                    |
+|-----------|---------|-------------------------------------------|
+|  start    |  s      |  start emulation with exit point in arg0  |
 
 ## find sub commands
 |  command  |   short    |                                info                                 |
