@@ -381,6 +381,13 @@ the content of emucb.py would be:
 
 ```python
 # uc expose unicorn emulator, which allow total control on emulation as well.
+# on_ready is invoked just before the start of emulation, allowing additional operations
+# on_hook will be invoked at each instruction, right after writing disasm informations to frick html result
+
+def on_ready(uc, entry_point, exit_point):
+    print(entry_point)
+
+
 def on_hook(uc, address, size):
     print(address)
 ```
