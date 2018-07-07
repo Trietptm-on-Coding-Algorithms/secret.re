@@ -392,8 +392,8 @@ def on_hook(uc, offset, address, size):
     print(address)
 		
 # will be asked before on_ready and will ensure the regions for those offsets are mapped into unicorn
-def required_offsets(uc):
-    return [0x339e82]
+def required_offsets(uc, base):
+    return [base + 0x339e82, base + 0x000936FA, base + 0x1da9a4, uc.reg_read(UC_ARM_REG_R0)]
 ```
 
 # Commands
