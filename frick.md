@@ -370,11 +370,11 @@ During emulation, an html file is written in ``.emulator`` folder in the root of
 ```
 
 ## Custom implementation
-There will be the case in which there is the needed to add additional code or logic to certain instructions hit. It's possible to add a callback with the command ``emulator implementation``
+There will be the case in which there is the needed to add additional code or logic to certain instructions hit or before emulation start. It's possible to add a some callbacks provided by a custom python file with the command ``emulator implementation``
 
 ```
 emu impl .scripts/emucb.py
--> .scripts/emucb.py set as instructions hook callback. make sure on_hook(uc, address, size) is in place.
+-> .scripts/emucb.py has been set as custom implementation.
 ```
 
 the content of emucb.py would be:
