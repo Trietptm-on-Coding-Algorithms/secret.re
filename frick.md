@@ -439,6 +439,7 @@ def required_offsets(uc, base):
 |  command  |   short    |                                info                                 |
 |-----------|------------|---------------------------------------------------------------------|
 |  export   |  e,ex,exp  |  find export name arg0 in target module or in optional module arg1  |
+|  pattern  |  p,pat     |  search in address arg0 and len in arg1 for pattern in args 2 (deadbeef)  |
 
 ## function sub commands
 |  command  |  short  |                                              info                                              |
